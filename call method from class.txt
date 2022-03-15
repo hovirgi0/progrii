@@ -1,0 +1,48 @@
+//3.Módosítsák a tömbkezelő feladatot (package tömb_9
+    Scanner billentyu = new Scanner (System.in); 
+    int[] tomb = new int[100]; 
+    int db = 0; 
+    
+    // Feltöltés 
+    out.printf("Kérem a %d. számot: ",db+1); 
+    tomb[db] = billentyu.nextInt(); 
+    while(tomb[db]!=0){ 
+        db++; 
+        out.printf("Kérem a %d. számot: ",db+1); 
+        tomb[db] = billentyu.nextInt(); 
+    } 
+    
+    //Minimum és maximum keresés
+    MinMax.Min(tomb, db); //meghívás
+    MinMax.Max(tomb, db);
+    
+    // Rendezés 
+    Rendez.rendez(tomb, db); 
+    for(int i=0; i<db ;i++) out.println(tomb[i]); 
+        } 
+    } 
+    class MinMax{
+        public static void Min(int[] t, int n){ 
+            int min = t[0]; 
+            for(int i=1; i<n; i++)if(min > t[i])min = t[i]; 
+            System.out.println("A legkisebb érték = "+ min); //
+        }  
+        public static void Max(int[] t, int n){ 
+            int max = t[0]; 
+            for(int i=1; i<n; i++)if(max < t[i])max = t[i]; 
+            System.out.println("A legnagyobb érték = "+ max); //
+        }
+    }
+
+    class Rendez{ 
+    public static void rendez(int[] t, int n){ 
+        int csere; 
+            for(int j=0; j<n-1; j++) 
+                for(int i=0; i<n-j-1; i++) 
+                    if(t[i]>t[i+1]){ 
+                        csere=t[i]; 
+                        t[i]=t[i+1]; 
+                        t[i+1]=csere; 
+                    } 
+    }
+} 
